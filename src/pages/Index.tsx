@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react';
 import SplashScreen from '../components/SplashScreen';
 import Header from '../components/Header';
 import Dashboard from '../components/Dashboard';
+import PortfolioPage from '../components/PortfolioPage';
+import InvestPage from '../components/InvestPage';
+import RewardsPage from '../components/RewardsPage';
+import ProfilePage from '../components/ProfilePage';
 import BottomNavigation from '../components/BottomNavigation';
 
 const Index = () => {
@@ -18,41 +22,13 @@ const Index = () => {
       case 'home':
         return <Dashboard />;
       case 'portfolio':
-        return (
-          <div className="flex-1 bg-prime-bg flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-prime-dark mb-2">Portfolio</h2>
-              <p className="text-gray-600">Your investment portfolio will be shown here</p>
-            </div>
-          </div>
-        );
+        return <PortfolioPage />;
       case 'invest':
-        return (
-          <div className="flex-1 bg-prime-bg flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-prime-dark mb-2">Invest</h2>
-              <p className="text-gray-600">Investment options will be shown here</p>
-            </div>
-          </div>
-        );
+        return <InvestPage />;
       case 'rewards':
-        return (
-          <div className="flex-1 bg-prime-bg flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-prime-dark mb-2">Rewards</h2>
-              <p className="text-gray-600">Your rewards and offers will be shown here</p>
-            </div>
-          </div>
-        );
+        return <RewardsPage />;
       case 'profile':
-        return (
-          <div className="flex-1 bg-prime-bg flex items-center justify-center">
-            <div className="text-center">
-              <h2 className="text-xl font-semibold text-prime-dark mb-2">Profile</h2>
-              <p className="text-gray-600">Your profile settings will be shown here</p>
-            </div>
-          </div>
-        );
+        return <ProfilePage />;
       default:
         return <Dashboard />;
     }
