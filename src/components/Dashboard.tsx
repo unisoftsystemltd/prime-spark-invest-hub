@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { TrendingUp, Target, Wallet, Gift, Users, PlusCircle, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { TrendingUp, Target, Wallet, Gift, Users, PlusCircle, ArrowUpRight, ArrowDownRight, Star } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
   const quickActions = [
@@ -14,15 +14,39 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="flex-1 bg-prime-bg">
-      {/* Promotional Banner */}
+    <div className="flex-1 bg-prime-bg pt-32 pb-20 overflow-y-auto">
+      {/* Promotional Offer Banner */}
       <div className="px-4 pt-4">
+        <div className="bg-gradient-to-r from-orange-500 via-pink-500 to-prime-red rounded-2xl p-6 text-white relative overflow-hidden animate-pulse-glow">
+          <div className="relative z-10">
+            <div className="flex items-center mb-2">
+              <Star className="w-5 h-5 text-yellow-300 mr-2" />
+              <h3 className="text-lg font-bold">🎉 Limited Time Offer!</h3>
+            </div>
+            <p className="text-sm mb-3 font-medium">Invest ৳10,000 today and get 5% bonus + cashback!</p>
+            <div className="flex items-center justify-between">
+              <button className="bg-white text-orange-600 px-6 py-2 rounded-lg font-bold text-sm shadow-lg hover:shadow-xl transition-shadow">
+                Claim Now
+              </button>
+              <div className="text-right">
+                <p className="text-xs opacity-90">Ends in</p>
+                <p className="font-bold text-yellow-300">2 days</p>
+              </div>
+            </div>
+          </div>
+          <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+          <div className="absolute left-0 bottom-0 w-20 h-20 bg-yellow-300/20 rounded-full translate-y-4 -translate-x-4"></div>
+        </div>
+      </div>
+
+      {/* Special Offer Banner */}
+      <div className="px-4 mt-4">
         <div className="bg-gradient-to-r from-prime-purple to-prime-green rounded-2xl p-6 text-white relative overflow-hidden">
           <div className="relative z-10">
-            <h3 className="text-lg font-semibold mb-2">🎉 Special Offer</h3>
-            <p className="text-sm mb-3">Invest ৳10,000 and get 5% bonus!</p>
+            <h3 className="text-lg font-semibold mb-2">🚀 New Year Special</h3>
+            <p className="text-sm mb-3">Start your investment journey with zero fees!</p>
             <button className="bg-white text-prime-purple px-4 py-2 rounded-lg font-medium text-sm">
-              Claim Now
+              Learn More
             </button>
           </div>
           <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
@@ -139,9 +163,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom Padding for Navigation */}
-      <div className="h-24"></div>
     </div>
   );
 };
