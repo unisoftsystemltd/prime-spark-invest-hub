@@ -1,8 +1,34 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TrendingUp, Target, Wallet, Gift, Users, PlusCircle, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const offers = [
+    {
+      id: 1,
+      title: "🎉 Special Offer",
+      description: "Invest ৳10,000 and get 5% bonus!",
+      buttonText: "Claim Now",
+      gradient: "from-prime-purple to-prime-green",
+    },
+    {
+      id: 2,
+      title: "💰 Monthly Income Plan",
+      description: "Start your MIP with ৳5,000 today!",
+      buttonText: "Start Now",
+      gradient: "from-prime-green to-blue-500",
+    },
+    {
+      id: 3,
+      title: "🏆 Referral Bonus",
+      description: "Refer friends and earn up to ৳1,000!",
+      buttonText: "Invite Now",
+      gradient: "from-orange-500 to-prime-red",
+    },
+  ];
+
   const quickActions = [
     { icon: PlusCircle, label: 'Invest', color: 'bg-prime-green' },
     { icon: ArrowDownRight, label: 'Withdraw', color: 'bg-prime-red' },
@@ -13,19 +39,59 @@ const Dashboard: React.FC = () => {
     { icon: Users, label: 'Invite', color: 'bg-teal-500' },
   ];
 
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % offers.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [offers.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <div className="flex-1 bg-prime-bg">
-      {/* Promotional Banner */}
+      {/* Promotional Banner Slider */}
       <div className="px-4 pt-4">
-        <div className="bg-gradient-to-r from-prime-purple to-prime-green rounded-2xl p-6 text-white relative overflow-hidden">
-          <div className="relative z-10">
-            <h3 className="text-lg font-semibold mb-2">🎉 Special Offer</h3>
-            <p className="text-sm mb-3">Invest ৳10,000 and get 5% bonus!</p>
-            <button className="bg-white text-prime-purple px-4 py-2 rounded-lg font-medium text-sm">
-              Claim Now
-            </button>
+        <div className="relative overflow-hidden rounded-2xl">
+          <div 
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {offers.map((offer) => (
+              <div
+                key={offer.id}
+                className={`w-full flex-shrink-0 bg-gradient-to-r ${offer.gradient} rounded-2xl p-6 text-white relative overflow-hidden`}
+              >
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold mb-2">{offer.title}</h3>
+                  <p className="text-sm mb-3">{offer.description}</p>
+                  <button className="bg-white text-prime-purple px-4 py-2 rounded-lg font-medium text-sm">
+                    {offer.buttonText}
+                  </button>
+                </div>
+                <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+              </div>
+            ))}
           </div>
-          <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+          
+          {/* Indicator Dots */}
+          <div className="flex justify-center space-x-2 mt-4">
+            {offers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index 
+                    ? 'bg-prime-purple w-6' 
+                    : 'bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
