@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({
   showProfile = true 
 }) => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-prime-purple to-prime-green h-32 flex items-center justify-between px-4 pt-6">
+    <div className="bg-gradient-to-r from-prime-purple to-prime-green h-28 flex items-center justify-between px-4 pt-6">
       {/* Left Section */}
       <div className="flex items-center">
         <div className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center mr-3 shadow-lg">
