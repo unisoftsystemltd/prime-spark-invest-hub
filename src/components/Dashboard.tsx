@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { TrendingUp, Target, Wallet, Gift, Users, PlusCircle, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
@@ -53,7 +52,7 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 bg-prime-bg">
+    <div className="bg-prime-bg">
       {/* Promotional Banner Slider */}
       <div className="px-4 pt-4">
         <div className="relative overflow-hidden rounded-2xl">

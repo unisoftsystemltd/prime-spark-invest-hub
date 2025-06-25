@@ -66,7 +66,9 @@ const Index = () => {
     <div className="min-h-screen bg-prime-bg font-poppins">
       <div className="flex flex-col h-screen">
         <Header />
-        {renderContent()}
+        <div className="flex-1 overflow-y-auto pt-32 pb-20">
+          {renderContent()}
+        </div>
         <BottomNavigation activeTab={activeTab} onTabChange={setActiveTab} />
       </div>
     </div>
