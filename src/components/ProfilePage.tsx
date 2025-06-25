@@ -133,6 +133,26 @@ const ProfilePage = () => {
               </div>
             </CardContent>
           </Card>
+
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Portfolio Risk Assessment</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center">
+                <div className="w-20 h-20 bg-prime-green rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold text-lg">7.5</span>
+                </div>
+                <p className="font-medium text-prime-dark">Moderate Risk Profile</p>
+                <p className="text-sm text-gray-600 mb-4">Based on your investment pattern and preferences</p>
+                <button className="bg-prime-purple text-white px-4 py-2 rounded-lg text-sm">
+                  Retake Assessment
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+
         </TabsContent>
 
         <TabsContent value="security" className="space-y-4">
@@ -258,23 +278,7 @@ const ProfilePage = () => {
             </Card>
           ))}
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Portfolio Risk Assessment</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-prime-green rounded-full flex items-center justify-center mx-auto mb-3">
-                  <span className="text-white font-bold text-lg">7.5</span>
-                </div>
-                <p className="font-medium text-prime-dark">Moderate Risk Profile</p>
-                <p className="text-sm text-gray-600 mb-4">Based on your investment pattern and preferences</p>
-                <button className="bg-prime-purple text-white px-4 py-2 rounded-lg text-sm">
-                  Retake Assessment
-                </button>
-              </div>
-            </CardContent>
-          </Card>
+
         </TabsContent>
       </Tabs>
     </div>
