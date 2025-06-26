@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -72,7 +73,7 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
     <div className="space-y-4">
       <div className="grid grid-cols-1 gap-4">
         <div>
-          <Label htmlFor="fullName" className="text-sm text-gray-700">Full Name</Label>
+          <Label htmlFor="fullName">Full Name</Label>
           <div className="relative">
             <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input
@@ -81,13 +82,13 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
               placeholder="Enter your full name"
               value={formData.fullName}
               onChange={(e) => handleInputChange('fullName', e.target.value)}
-              className="pl-10 bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
+              className="pl-10"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="email" className="text-sm text-gray-700">Email Address</Label>
+          <Label htmlFor="email">Email Address</Label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input
@@ -96,13 +97,13 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
               placeholder="Enter your email"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
-              className="pl-10 bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
+              className="pl-10"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="phone" className="text-sm text-gray-700">Phone Number</Label>
+          <Label htmlFor="phone">Phone Number</Label>
           <div className="relative">
             <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input
@@ -111,13 +112,13 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
               placeholder="Enter your phone number"
               value={formData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
-              className="pl-10 bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
+              className="pl-10"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="nid" className="text-sm text-gray-700">National ID (NID)</Label>
+          <Label htmlFor="nid">National ID (NID)</Label>
           <div className="relative">
             <FileText className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input
@@ -126,24 +127,23 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
               placeholder="Enter your NID number"
               value={formData.nid}
               onChange={(e) => handleInputChange('nid', e.target.value)}
-              className="pl-10 bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
+              className="pl-10"
             />
           </div>
         </div>
 
         <div>
-          <Label htmlFor="dob" className="text-sm text-gray-700">Date of Birth</Label>
+          <Label htmlFor="dob">Date of Birth</Label>
           <Input
             id="dob"
             type="date"
             value={formData.dateOfBirth}
             onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
-            className="bg-white border-gray-300/70 focus:border-prime-purple"
           />
         </div>
 
         <div>
-          <Label htmlFor="address" className="text-sm text-gray-700">Address</Label>
+          <Label htmlFor="address">Address</Label>
           <div className="relative">
             <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <Input
@@ -152,7 +152,7 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
               placeholder="Enter your address"
               value={formData.address}
               onChange={(e) => handleInputChange('address', e.target.value)}
-              className="pl-10 bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
+              className="pl-10"
             />
           </div>
         </div>
@@ -167,14 +167,13 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
   const renderStep2 = () => (
     <div className="space-y-4">
       <div>
-        <Label htmlFor="password" className="text-sm text-gray-700">Password</Label>
+        <Label htmlFor="password">Password</Label>
         <Input
           id="password"
           type="password"
           placeholder="Create a strong password"
           value={formData.password}
           onChange={(e) => handleInputChange('password', e.target.value)}
-          className="bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
         />
         <p className="text-sm text-gray-500 mt-1">
           Password must be at least 8 characters with numbers and symbols
@@ -182,14 +181,13 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
       </div>
 
       <div>
-        <Label htmlFor="confirmPassword" className="text-sm text-gray-700">Confirm Password</Label>
+        <Label htmlFor="confirmPassword">Confirm Password</Label>
         <Input
           id="confirmPassword"
           type="password"
           placeholder="Confirm your password"
           value={formData.confirmPassword}
           onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-          className="bg-white border-gray-300/70 focus:border-prime-purple placeholder:text-gray-500"
         />
       </div>
 
@@ -347,13 +345,13 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-prime-purple to-prime-green flex items-center justify-center p-4">
-      <Card className="w-full max-w-sm sm:max-w-md lg:max-w-sm">
+      <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
-          <div className="w-16 h-16 bg-prime-purple rounded-2xl flex items-center justify-center mx-auto">
-            <div className="text-xl font-bold text-white">PB</div>
+          <div className="w-20 h-20 bg-prime-purple rounded-2xl flex items-center justify-center mx-auto">
+            <div className="text-2xl font-bold text-white">PB</div>
           </div>
           <div>
-            <CardTitle className="text-xl font-bold text-prime-dark">Create Account</CardTitle>
+            <CardTitle className="text-2xl font-bold text-prime-dark">Create Account</CardTitle>
             <CardDescription className="text-gray-600">
               {getStepTitle()} - Step {currentStep} of 3
             </CardDescription>
@@ -368,7 +366,7 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onBackToLogin }) =>
           </div>
         </CardHeader>
         
-        <CardContent className="px-6 pb-6">
+        <CardContent>
           {currentStep === 1 && renderStep1()}
           {currentStep === 2 && renderStep2()}
           {currentStep === 3 && renderEKYCStep()}
