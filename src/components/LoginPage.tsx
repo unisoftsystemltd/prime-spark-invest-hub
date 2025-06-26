@@ -46,23 +46,23 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-prime-purple to-prime-green flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center space-y-4">
-          <div className="w-20 h-20 bg-prime-purple rounded-2xl flex items-center justify-center mx-auto">
-            <div className="text-2xl font-bold text-white">PB</div>
+      <Card className="w-full max-w-sm sm:max-w-md lg:max-w-sm">
+        <CardHeader className="text-center space-y-3 pb-4">
+          <div className="w-16 h-16 bg-prime-purple rounded-2xl flex items-center justify-center mx-auto">
+            <div className="text-xl font-bold text-white">PB</div>
           </div>
           <div>
-            <CardTitle className="text-2xl font-bold text-prime-dark">Welcome Back</CardTitle>
-            <CardDescription className="text-gray-600">
+            <CardTitle className="text-xl font-bold text-prime-dark">Welcome Back</CardTitle>
+            <CardDescription className="text-gray-600 text-sm">
               Sign in to your Prime Bank Investment account
             </CardDescription>
           </div>
         </CardHeader>
         
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-4 px-6 pb-6">
           {/* Username Field */}
           <div className="space-y-2">
-            <Label htmlFor="username">Username or Email</Label>
+            <Label htmlFor="username" className="text-sm">Username or Email</Label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
@@ -71,17 +71,17 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
                 placeholder="Enter your username or email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className={`pl-10 ${errors.username ? 'border-red-500' : ''}`}
+                className={`pl-10 bg-white border-gray-300/70 focus:border-prime-purple ${errors.username ? 'border-red-500' : ''}`}
               />
             </div>
             {errors.username && (
-              <p className="text-red-500 text-sm">{errors.username}</p>
+              <p className="text-red-500 text-xs">{errors.username}</p>
             )}
           </div>
 
           {/* Password Field */}
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password" className="text-sm">Password</Label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
@@ -90,7 +90,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`pl-10 pr-10 ${errors.password ? 'border-red-500' : ''}`}
+                className={`pl-10 pr-10 bg-white border-gray-300/70 focus:border-prime-purple ${errors.password ? 'border-red-500' : ''}`}
               />
               <button
                 type="button"
@@ -101,7 +101,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
               </button>
             </div>
             {errors.password && (
-              <p className="text-red-500 text-sm">{errors.password}</p>
+              <p className="text-red-500 text-xs">{errors.password}</p>
             )}
           </div>
 
@@ -113,14 +113,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
                 checked={rememberMe}
                 onCheckedChange={(checked) => setRememberMe(checked as boolean)}
               />
-              <Label htmlFor="remember" className="text-sm text-gray-600 cursor-pointer">
+              <Label htmlFor="remember" className="text-xs text-gray-600 cursor-pointer">
                 Remember me
               </Label>
             </div>
             <button
               type="button"
               onClick={onForgotPassword}
-              className="text-sm text-prime-purple hover:text-prime-purple/80 font-medium"
+              className="text-xs text-prime-purple hover:text-prime-purple/80 font-medium"
             >
               Forgot Password?
             </button>
@@ -129,14 +129,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
           {/* Login Button */}
           <Button 
             onClick={handleLogin}
-            className="w-full bg-prime-purple hover:bg-prime-purple/90 text-white py-3"
+            className="w-full bg-prime-purple hover:bg-prime-purple/90 text-white py-2.5"
           >
             Sign In
           </Button>
 
           {/* Registration */}
           <div className="text-center">
-            <p className="text-gray-600 text-sm">
+            <p className="text-gray-600 text-xs">
               Don't have an account?{' '}
               <button
                 type="button"
@@ -151,7 +151,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
           {/* Divider */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
+              <span className="w-full border-t border-gray-200" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-white px-2 text-muted-foreground">Or continue with</span>
@@ -160,7 +160,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
 
           {/* Social Login Options */}
           <div className="grid grid-cols-2 gap-3">
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full text-xs py-2">
               <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                 <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -169,7 +169,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onRegister, onForgotPass
               </svg>
               Google
             </Button>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full text-xs py-2">
               <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
