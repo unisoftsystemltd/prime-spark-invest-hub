@@ -85,7 +85,7 @@ const Index = () => {
 
   // Show authentication pages if not authenticated
   if (!isAuthenticated) {
-    switch (authePage) {
+    switch (authPage) {
       case 'login':
         return (
           <LoginPage
