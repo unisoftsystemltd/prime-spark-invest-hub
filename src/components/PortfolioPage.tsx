@@ -1,10 +1,13 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { TrendingUp, Target, PieChart, Calendar, Download, Eye } from 'lucide-react';
+import { TrendingUp, Target, PieChart, Calendar, Download, Eye, BarChart3 } from 'lucide-react';
 
-const PortfolioPage = () => {
+interface PortfolioPageProps {
+  onNavigate?: (page: string) => void;
+}
+
+const PortfolioPage: React.FC<PortfolioPageProps> = ({ onNavigate }) => {
   const [activeGoal, setActiveGoal] = useState('all');
 
   const goals = [
@@ -45,9 +48,12 @@ const PortfolioPage = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-3 gap-2 text-center">
-            <button className="bg-prime-purple text-white p-2 rounded-lg text-xs">
-              <Eye className="w-4 h-4 mx-auto mb-1" />
+          <div className="grid grid-cols-4 gap-2 text-center">
+            <button 
+              onClick={() => onNavigate?.('analytics')}
+              className="bg-prime-purple text-white p-2 rounded-lg text-xs"
+            >
+              <BarChart3 className="w-4 h-4 mx-auto mb-1" />
               Analytics
             </button>
             <button className="bg-prime-green text-white p-2 rounded-lg text-xs">
@@ -57,6 +63,10 @@ const PortfolioPage = () => {
             <button className="bg-orange-500 text-white p-2 rounded-lg text-xs">
               <PieChart className="w-4 h-4 mx-auto mb-1" />
               Allocation
+            </button>
+            <button className="bg-blue-500 text-white p-2 rounded-lg text-xs">
+              <Eye className="w-4 h-4 mx-auto mb-1" />
+              Details
             </button>
           </div>
         </CardContent>

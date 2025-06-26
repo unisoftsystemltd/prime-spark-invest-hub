@@ -1,10 +1,13 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { User, Shield, Settings, Bell, Globe, Lock, Phone, Mail, MapPin, Briefcase, CreditCard } from 'lucide-react';
+import { User, Shield, Settings, Bell, Globe, Lock, Phone, Mail, MapPin, Briefcase, CreditCard, MessageSquare, Bot, HelpCircle } from 'lucide-react';
 
-const ProfilePage = () => {
+interface ProfilePageProps {
+  onNavigate?: (page: string) => void;
+}
+
+const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate }) => {
   const [profileData, setProfileData] = useState({
     name: 'Md. Rahman Khan',
     email: 'rahman.khan@example.com',
@@ -62,11 +65,12 @@ const ProfilePage = () => {
       </Card>
 
       <Tabs defaultValue="personal" className="mb-6">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="personal">Personal</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
           <TabsTrigger value="settings">Settings</TabsTrigger>
           <TabsTrigger value="limits">Limits</TabsTrigger>
+          <TabsTrigger value="support">Support</TabsTrigger>
         </TabsList>
 
         <TabsContent value="personal" className="space-y-4">
@@ -279,6 +283,101 @@ const ProfilePage = () => {
           ))}
 
 
+        </TabsContent>
+
+        <TabsContent value="support" className="space-y-4">
+          <h3 className="font-semibold text-prime-dark">Support & Help</h3>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Bot className="w-5 h-5 text-prime-purple" />
+                AI Assistant
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-prime-purple to-prime-green rounded-lg">
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-prime-purple" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-white font-medium">24/7 Investment Assistant</p>
+                    <p className="text-white/80 text-sm">Get instant help with your investments</p>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => onNavigate?.('support')}
+                  className="w-full bg-prime-purple text-white py-3 rounded-lg flex items-center justify-center gap-2"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  Chat with Assistant
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <HelpCircle className="w-5 h-5" />
+                Help Center
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 gap-3">
+                <button 
+                  onClick={() => onNavigate?.('support')}
+                  className="p-3 border rounded-lg text-left hover:bg-gray-50"
+                >
+                  <h4 className="font-medium text-sm">FAQs</h4>
+                  <p className="text-xs text-gray-600">Common questions</p>
+                </button>
+                <button 
+                  onClick={() => onNavigate?.('support')}
+                  className="p-3 border rounded-lg text-left hover:bg-gray-50"
+                >
+                  <h4 className="font-medium text-sm">Video Tutorials</h4>
+                  <p className="text-xs text-gray-600">Step-by-step guides</p>
+                </button>
+                <button 
+                  onClick={() => onNavigate?.('support')}
+                  className="p-3 border rounded-lg text-left hover:bg-gray-50"
+                >
+                  <h4 className="font-medium text-sm">Support Tickets</h4>
+                  <p className="text-xs text-gray-600">Track your requests</p>
+                </button>
+                <button className="p-3 border rounded-lg text-left hover:bg-gray-50">
+                  <h4 className="font-medium text-sm">Contact Us</h4>
+                  <p className="text-xs text-gray-600">Direct support</p>
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Support Activity</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="font-medium text-sm">Ticket #TKT-001</p>
+                    <p className="text-xs text-gray-600">Unable to withdraw funds</p>
+                  </div>
+                  <span className="bg-yellow-100 text-yellow-600 px-2 py-1 rounded text-xs">In Progress</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="font-medium text-sm">Chat Session</p>
+                    <p className="text-xs text-gray-600">Portfolio inquiry - Today</p>
+                  </div>
+                  <span className="bg-green-100 text-green-600 px-2 py-1 rounded text-xs">Resolved</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
