@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { MessageSquare, Bot, Video, HelpCircle, Ticket, Send, Paperclip } from 'lucide-react';
+import { MessageSquare, Bot, Video, HelpCircle, Ticket, Send, Paperclip, Play } from 'lucide-react';
 
 const SupportPage = () => {
   const [chatMessages, setChatMessages] = useState([
@@ -26,6 +26,57 @@ const SupportPage = () => {
     { question: 'What is the minimum investment amount?', answer: 'The minimum investment amount is ৳1,000 for most funds.' },
     { question: 'How are dividends paid?', answer: 'Dividends are automatically credited to your wallet on the declared payout date.' },
     { question: 'Can I withdraw my investment anytime?', answer: 'Yes, most investments can be redeemed, but some may have lock-in periods.' },
+  ];
+
+  const videoTutorials = [
+    { 
+      title: 'Getting Started with Prime Invest', 
+      duration: '5:32',
+      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+      videoId: 'dQw4w9WgXcQ',
+      views: '12.5K',
+      description: 'Learn how to set up your account and make your first investment'
+    },
+    { 
+      title: 'How to Set Investment Goals', 
+      duration: '3:45',
+      thumbnail: 'https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg',
+      videoId: 'ScMzIvxBSi4',
+      views: '8.2K',
+      description: 'Step-by-step guide to creating and managing your financial goals'
+    },
+    { 
+      title: 'Understanding Portfolio Analytics', 
+      duration: '7:20',
+      thumbnail: 'https://img.youtube.com/vi/fJ9rUzIMcZQ/maxresdefault.jpg',
+      videoId: 'fJ9rUzIMcZQ',
+      views: '15.3K',
+      description: 'Deep dive into portfolio performance metrics and analytics'
+    },
+    { 
+      title: 'Monthly Income Plans Explained', 
+      duration: '4:15',
+      thumbnail: 'https://img.youtube.com/vi/zbRdwuqU8gQ/maxresdefault.jpg',
+      videoId: 'zbRdwuqU8gQ',
+      views: '9.7K',
+      description: 'Everything you need to know about MIP investments'
+    },
+    { 
+      title: 'Smart Baskets and Thematic Investing', 
+      duration: '6:10',
+      thumbnail: 'https://img.youtube.com/vi/oHg5SJYRHA0/maxresdefault.jpg',
+      videoId: 'oHg5SJYRHA0',
+      views: '6.8K',
+      description: 'How to invest in curated portfolios and themed baskets'
+    },
+    { 
+      title: 'Security Features and 2FA Setup', 
+      duration: '2:55',
+      thumbnail: 'https://img.youtube.com/vi/RgKAFK5djSk/maxresdefault.jpg',
+      videoId: 'RgKAFK5djSk',
+      views: '4.2K',
+      description: 'Secure your account with two-factor authentication'
+    }
   ];
 
   const handleSendMessage = () => {
@@ -202,23 +253,62 @@ const SupportPage = () => {
 
         <TabsContent value="videos" className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              { title: 'Getting Started with Prime Invest', duration: '5:32' },
-              { title: 'How to Set Investment Goals', duration: '3:45' },
-              { title: 'Understanding Portfolio Analytics', duration: '7:20' },
-              { title: 'Monthly Income Plans Explained', duration: '4:15' },
-            ].map((video, index) => (
+            {videoTutorials.map((video, index) => (
               <Card key={index} className="cursor-pointer hover:shadow-lg transition-shadow">
-                <CardContent className="p-4">
-                  <div className="bg-gradient-to-br from-prime-purple to-prime-green h-32 rounded-lg mb-3 flex items-center justify-center">
-                    <Video className="w-8 h-8 text-white" />
+                <CardContent className="p-0">
+                  {/* Video Thumbnail */}
+                  <div className="relative">
+                    <img 
+                      src={video.thumbnail} 
+                      alt={video.title}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    <div className="absolute inset-0 bg-black/20 rounded-t-lg flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                      <div className="bg-white/90 rounded-full p-3">
+                        <Play className="w-6 h-6 text-prime-purple" />
+                      </div>
+                    </div>
+                    <div className="absolute bottom-2 right-2 bg-black/80 text-white px-2 py-1 rounded text-xs">
+                      {video.duration}
+                    </div>
                   </div>
-                  <h4 className="font-medium text-prime-dark">{video.title}</h4>
-                  <p className="text-sm text-gray-600">{video.duration}</p>
+                  
+                  {/* Video Info */}
+                  <div className="p-4">
+                    <h4 className="font-medium text-prime-dark mb-1">{video.title}</h4>
+                    <p className="text-sm text-gray-600 mb-2">{video.description}</p>
+                    <div className="flex items-center justify-between text-xs text-gray-500">
+                      <span>{video.views} views</span>
+                      <button className="text-prime-purple hover:underline">Watch Now</button>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          {/* Video Categories */}
+          <Card className="mt-6">
+            <CardHeader>
+              <CardTitle>Browse by Category</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { name: 'Getting Started', count: 8, icon: '🚀' },
+                  { name: 'Investment Basics', count: 12, icon: '📈' },
+                  { name: 'Portfolio Management', count: 6, icon: '📊' },
+                  { name: 'Security & Safety', count: 4, icon: '🔒' },
+                ].map((category, index) => (
+                  <div key={index} className="text-center p-4 border rounded-lg hover:bg-gray-50 cursor-pointer">
+                    <div className="text-2xl mb-2">{category.icon}</div>
+                    <h5 className="font-medium text-prime-dark">{category.name}</h5>
+                    <p className="text-sm text-gray-600">{category.count} videos</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
