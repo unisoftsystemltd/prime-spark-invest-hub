@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -405,7 +404,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
           <Button 
             onClick={handleLogoutClick}
             variant="destructive" 
-            className="w-full bg-prime-red hover:bg-prime-red/90"
+            className="w-full bg-prime-red hover:bg-prime-red/90 text-white"
           >
             <LogOut className="w-4 h-4 mr-2" />
             Logout
