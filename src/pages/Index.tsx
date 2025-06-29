@@ -60,6 +60,15 @@ const Index = () => {
     if (currentPage === 'support') {
       return <SupportPage />;
     }
+    if (currentPage === 'search') {
+      return <SearchPage />;
+    }
+    if (currentPage === 'notifications') {
+      return <NotificationPage />;
+    }
+    if (currentPage === 'profile') {
+      return <ProfilePage onNavigate={handlePageNavigation} onLogout={handleLogout} />;
+    }
 
     // Handle main tab content
     switch (activeTab) {
@@ -113,7 +122,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-prime-bg font-poppins">
       <div className="flex flex-col h-screen">
-        <Header />
+        <Header onNavigate={handlePageNavigation} />
         <div className="flex-1 overflow-y-auto pt-32 pb-20">
           {/* Back button for special pages */}
           {currentPage && (
