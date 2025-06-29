@@ -145,7 +145,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
       </Card>
 
       {/* Risk Rating */}
-      <Card>
+      {/* <Card>
         <CardHeader>
           <CardTitle className="flex items-center text-lg text-black">
             <Shield className="w-5 h-5 mr-2 text-prime-purple" />
@@ -167,7 +167,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
             Update Risk Assessment
           </Button>
         </CardContent>
-      </Card>
+      </Card> */}
 
       {/* Portfolio Risk Score */}
       <Card>
