@@ -33,7 +33,11 @@ import {
   MapPin,
   Fingerprint,
   History,
-  Languages
+  Languages,
+  Briefcase,
+  DollarSign,
+  TrendingUp,
+  Eye
 } from 'lucide-react';
 
 interface ProfilePageProps {
@@ -113,6 +117,27 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
               <div className="text-sm text-gray-600">123 Main St, City, State 12345</div>
             </div>
           </div>
+          <div className="flex items-center space-x-3">
+            <Briefcase className="w-4 h-4 text-gray-500" />
+            <div>
+              <div className="text-sm font-medium text-black">Occupation</div>
+              <div className="text-sm text-gray-600">Software Engineer</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <DollarSign className="w-4 h-4 text-gray-500" />
+            <div>
+              <div className="text-sm font-medium text-black">Source of Funds</div>
+              <div className="text-sm text-gray-600">Employment Income</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <TrendingUp className="w-4 h-4 text-gray-500" />
+            <div>
+              <div className="text-sm font-medium text-black">Income Bracket</div>
+              <div className="text-sm text-gray-600">$75,000 - $100,000</div>
+            </div>
+          </div>
           <Button variant="outline" className="w-full justify-start border-prime-purple text-prime-purple hover:bg-prime-purple hover:text-white">
             <User className="w-4 h-4 mr-2" />
             Edit Contact Information
@@ -141,6 +166,71 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
           <Button variant="outline" className="w-full justify-start border-prime-purple text-prime-purple hover:bg-prime-purple hover:text-white">
             <Shield className="w-4 h-4 mr-2" />
             Update Risk Assessment
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Portfolio Risk Score */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center text-lg text-black">
+            <TrendingUp className="w-5 h-5 mr-2 text-prime-purple" />
+            Portfolio Risk Score
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-medium text-black">Portfolio Risk Score</span>
+              <span className="text-sm font-semibold text-prime-purple">7.2/10</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-prime-purple h-2 rounded-full" style={{ width: '72%' }}></div>
+            </div>
+            <div className="text-xs text-gray-600">High risk, high potential return portfolio</div>
+          </div>
+          <Button variant="outline" className="w-full justify-start border-prime-purple text-prime-purple hover:bg-prime-purple hover:text-white">
+            <TrendingUp className="w-4 h-4 mr-2" />
+            View Portfolio Analysis
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Session History Log */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center text-lg text-black">
+            <History className="w-5 h-5 mr-2 text-prime-purple" />
+            Session History Log
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-3">
+            <div className="flex justify-between items-center">
+              <div>
+                <div className="text-sm font-medium text-black">Last Login</div>
+                <div className="text-xs text-gray-600">Dec 29, 2025 at 10:30 AM</div>
+              </div>
+              <div className="text-xs text-green-600">Active</div>
+            </div>
+            <div className="flex justify-between items-center">
+              <div>
+                <div className="text-sm font-medium text-black">Previous Session</div>
+                <div className="text-xs text-gray-600">Dec 28, 2025 at 3:45 PM</div>
+              </div>
+              <div className="text-xs text-gray-500">Ended</div>
+            </div>
+            <div className="flex justify-between items-center">
+              <div>
+                <div className="text-sm font-medium text-black">Login Attempts</div>
+                <div className="text-xs text-gray-600">3 successful logins this week</div>
+              </div>
+              <div className="text-xs text-blue-600">Normal</div>
+            </div>
+          </div>
+          <Button variant="outline" className="w-full justify-start border-prime-purple text-prime-purple hover:bg-prime-purple hover:text-white">
+            <Eye className="w-4 h-4 mr-2" />
+            View Full History
           </Button>
         </CardContent>
       </Card>
@@ -180,19 +270,6 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
               checked={twoFactorEnabled}
               onCheckedChange={setTwoFactorEnabled}
             />
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <History className="w-4 h-4 text-gray-500" />
-              <div>
-                <div className="text-sm font-medium text-black">Session History Log</div>
-                <div className="text-xs text-gray-600">View your recent login activity</div>
-              </div>
-            </div>
-            <Button variant="outline" size="sm" className="border-prime-purple text-prime-purple hover:bg-prime-purple hover:text-white">
-              View
-            </Button>
           </div>
         </CardContent>
       </Card>
