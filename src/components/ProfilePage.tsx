@@ -13,7 +13,11 @@ import {
   MessageSquare,
   LogOut,
   User,
-  FileText
+  FileText,
+  Shield,
+  Mail,
+  Phone,
+  MapPin
 } from 'lucide-react';
 
 interface ProfilePageProps {
@@ -39,13 +43,86 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ onNavigate, onLogout }) => {
           <div className="flex items-center space-x-4">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>SC</AvatarFallback>
+              <AvatarFallback>JD</AvatarFallback>
             </Avatar>
             <div>
               <div className="text-lg font-semibold">John Doe</div>
               <div className="text-sm text-gray-500">john.doe@example.com</div>
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Basic Contact Information */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center text-lg">
+            <User className="w-5 h-5 mr-2 text-prime-purple" />
+            Basic Contact Information
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex items-center space-x-3">
+            <Mail className="w-4 h-4 text-gray-500" />
+            <div>
+              <div className="text-sm font-medium">Email Address</div>
+              <div className="text-sm text-gray-600">john.doe@example.com</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <Phone className="w-4 h-4 text-gray-500" />
+            <div>
+              <div className="text-sm font-medium">Phone Number</div>
+              <div className="text-sm text-gray-600">+1 (555) 123-4567</div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <MapPin className="w-4 h-4 text-gray-500" />
+            <div>
+              <div className="text-sm font-medium">Address</div>
+              <div className="text-sm text-gray-600">123 Main St, City, State 12345</div>
+            </div>
+          </div>
+          <Button variant="outline" className="w-full justify-start">
+            <User className="w-4 h-4 mr-2" />
+            Edit Contact Information
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Risk Rating */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center text-lg">
+            <Shield className="w-5 h-5 mr-2 text-prime-purple" />
+            Risk Rating & Profile
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-medium">Current Risk Level</span>
+              <span className="text-sm font-semibold text-prime-purple">Moderate</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-prime-purple h-2 rounded-full" style={{ width: '60%' }}></div>
+            </div>
+          </div>
+          <div className="space-y-2">
+            <div className="text-sm">
+              <strong>Investment Goals:</strong> Long-term growth with moderate risk
+            </div>
+            <div className="text-sm">
+              <strong>Time Horizon:</strong> 10-15 years
+            </div>
+            <div className="text-sm">
+              <strong>Risk Tolerance:</strong> Moderate - comfortable with some fluctuations
+            </div>
+          </div>
+          <Button variant="outline" className="w-full justify-start">
+            <Shield className="w-4 h-4 mr-2" />
+            Update Risk Assessment
+          </Button>
         </CardContent>
       </Card>
 
